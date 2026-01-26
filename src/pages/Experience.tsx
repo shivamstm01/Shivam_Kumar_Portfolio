@@ -29,7 +29,12 @@ const Experience = () => {
                             ) : (
                                 <div className="hidden md:block">
                                     <h3 className="text-xl font-bold">{item.role}</h3>
-                                    <p className="text-sm text-muted-foreground mt-2">{item.description}</p>
+                                    <p className="text-sm font-medium text-muted-foreground mb-2">{item.location}</p>
+                                    <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                                        {item.description.map((desc, i) => (
+                                            <li key={i}>{desc}</li>
+                                        ))}
+                                    </ul>
                                 </div>
                             )}
                         </div>
@@ -44,9 +49,15 @@ const Experience = () => {
                             {index % 2 === 0 ? (
                                 <div>
                                     <h3 className="text-xl font-bold md:hidden">{item.role}</h3> {/* Mobile only */}
+                                    <p className="text-sm font-medium text-muted-foreground mb-2 md:hidden">{item.location}</p> {/* Mobile only */}
                                     <div className="hidden md:block">
                                         <h3 className="text-xl font-bold">{item.role}</h3>
-                                        <p className="text-sm text-muted-foreground mt-2">{item.description}</p>
+                                        <p className="text-sm font-medium text-muted-foreground mb-2">{item.location}</p>
+                                        <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                                            {item.description.map((desc, i) => (
+                                                <li key={i}>{desc}</li>
+                                            ))}
+                                        </ul>
                                     </div>
                                 </div>
                             ) : (
@@ -64,7 +75,11 @@ const Experience = () => {
                                 </div>
                             )}
                             {/* Mobile Description */}
-                            <p className="text-sm text-muted-foreground mt-2 md:hidden">{item.description}</p>
+                            <ul className="list-disc list-inside text-sm text-muted-foreground mt-2 space-y-1 md:hidden">
+                                {item.description.map((desc, i) => (
+                                    <li key={i}>{desc}</li>
+                                ))}
+                            </ul>
                         </div>
 
                     </motion.div>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { skillsData } from "@/data/skills"
 
 const Skills = () => {
-    const categories = ["Frontend", "Backend", "Tools"] as const
+    const categories = ["Languages", "Frontend", "Backend", "Databases", "Tools", "Other"] as const
 
     return (
         <div className="container px-4 py-16 md:px-6 md:py-24">

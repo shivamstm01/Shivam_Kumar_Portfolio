@@ -65,22 +65,26 @@ const Projects = () => {
                             </div>
 
                             <div className="flex gap-4 mt-auto">
-                                <a
-                                    href={project.demoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center text-sm font-medium text-primary hover:underline"
-                                >
-                                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                                </a>
-                                <a
-                                    href={project.repoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                                >
-                                    <Github className="mr-2 h-4 w-4" /> Code
-                                </a>
+                                {project.demoUrl && (
+                                    <a
+                                        href={project.demoUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center text-sm font-medium text-primary hover:underline"
+                                    >
+                                        <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                                    </a>
+                                )}
+                                {project.repoUrl && (
+                                    <a
+                                        href={project.repoUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                                    >
+                                        <Github className="mr-2 h-4 w-4" /> Code
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </motion.div>

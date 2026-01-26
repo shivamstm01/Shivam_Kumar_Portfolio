@@ -1,10 +1,10 @@
 import { motion } from "framer-motion"
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
 import { Link } from "react-router-dom"
 
 const Hero = () => {
     return (
-        <section className="flex min-h-[calc(100vh-4rem)] items-center justify-center py-10">
+        <section className="flex min-h-[calc(100vh-8rem)] items-center justify-center py-10">
             <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center space-y-4 text-center">
                     <motion.div
@@ -31,7 +31,7 @@ const Hero = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="mx-auto max-w-[700px] text-muted-foreground md:text-xl"
                     >
-                        A passionate Full Stack Developer building beautiful and functional web applications.
+                        Software Engineer | Full Stack Developer | React, Angular, Node.js, Java Spring Boot
                     </motion.p>
 
                     <motion.div
@@ -69,11 +69,7 @@ const Hero = () => {
                             <Linkedin className="h-6 w-6" />
                             <span className="sr-only">LinkedIn</span>
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                            <Twitter className="h-6 w-6" />
-                            <span className="sr-only">Twitter</span>
-                        </a>
-                        <a href="mailto:hello@example.com" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a href="mailto:shivamstm01@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                             <Mail className="h-6 w-6" />
                             <span className="sr-only">Email</span>
                         </a>
