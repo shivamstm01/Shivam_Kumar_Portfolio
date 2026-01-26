@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowRight, Github, Instagram, Linkedin, Mail } from "lucide-react"
 import { Link } from "react-router-dom"
 
 const Hero = () => {
@@ -61,13 +61,17 @@ const Hero = () => {
                         transition={{ duration: 0.5, delay: 0.6 }}
                         className="flex space-x-4 mt-8"
                     >
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a href="https://github.com/shivamstm01" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                             <Github className="h-6 w-6" />
                             <span className="sr-only">GitHub</span>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a href="https://www.linkedin.com/in/shivam-kumar-31ba7b169/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                             <Linkedin className="h-6 w-6" />
                             <span className="sr-only">LinkedIn</span>
+                        </a>
+                        <a href="https://www.instagram.com/shivamshri6201/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                            <Instagram className="h-6 w-6" />
+                            <span className="sr-only">Instagram</span>
                         </a>
                         <a href="mailto:shivamstm01@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                             <Mail className="h-6 w-6" />
