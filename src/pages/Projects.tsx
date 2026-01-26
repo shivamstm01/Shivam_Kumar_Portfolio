@@ -1,0 +1,93 @@
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { projectsData } from "@/data/projects"
+import { ExternalLink, Github } from "lucide-react"
+
+const Projects = () => {
+    const [filter, setFilter] = useState<"All" | "Full Stack" | "Frontend" | "Backend">("All")
+
+    const filteredProjects = projectsData.filter(
+        (project) => filter === "All" || project.category === filter
+    )
+
+    const categories = ["All", "Full Stack", "Frontend", "Backend"]
+
+    return (
+        <div className="container px-4 py-16 md:px-6 md:py-24">
+            <div className="space-y-4 text-center mb-12">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Projects</h2>
+                <p className="text-muted-foreground">Some of my recent work</p>
+            </div>
+
+            <div className="flex justify-center gap-4 mb-12 flex-wrap">
+                {categories.map((category) => (
+                    <button
+                        key={category}
+                        onClick={() => setFilter(category as any)}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${filter === category
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                            }`}
+                    >
+                        {category}
+                    </button>
+                ))}
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+                {filteredProjects.map((project) => (
+                    <motion.div
+                        key={project.id}
+                        layout
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.3 }}
+                        className="rounded-xl border bg-card text-card-foreground shadow overflow-hidden flex flex-col"
+                    >
+                        <div className="relative aspect-video overflow-hidden">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                            />
+                        </div>
+                        <div className="p-6 flex-1 flex flex-col">
+                            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                            <p className="text-muted-foreground text-sm mb-4 flex-1">{project.description}</p>
+
+                            <div className="flex flex-wrap gap-2 mb-6">
+                                {project.tags.map((tag) => (
+                                    <span key={tag} className="text-xs font-medium px-2 py-1 bg-secondary rounded-md">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className="flex gap-4 mt-auto">
+                                <a
+                                    href={project.demoUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center text-sm font-medium text-primary hover:underline"
+                                >
+                                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                                </a>
+                                <a
+                                    href={project.repoUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    <Github className="mr-2 h-4 w-4" /> Code
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        </div>
+    )
+}
+
+export default Projects
