@@ -2,8 +2,10 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { projectsData } from "@/data/projects"
 import { ExternalLink, Github } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 const Projects = () => {
+    const { t } = useLanguage()
     const [filter, setFilter] = useState<"All" | "Full Stack" | "Frontend" | "Backend">("All")
 
     const filteredProjects = projectsData.filter(
@@ -72,7 +74,7 @@ const Projects = () => {
                                         rel="noopener noreferrer"
                                         className="flex items-center text-sm font-medium text-primary hover:underline"
                                     >
-                                        <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                                        <ExternalLink className="mr-2 h-4 w-4" /> {t.projects.demo}
                                     </a>
                                 )}
                                 {project.repoUrl && (
@@ -82,7 +84,7 @@ const Projects = () => {
                                         rel="noopener noreferrer"
                                         className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                                     >
-                                        <Github className="mr-2 h-4 w-4" /> Code
+                                        <Github className="mr-2 h-4 w-4" /> {t.projects.code}
                                     </a>
                                 )}
                             </div>

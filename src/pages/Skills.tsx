@@ -1,14 +1,16 @@
 import { motion } from "framer-motion"
 import { skillsData } from "@/data/skills"
+import { useLanguage } from "@/context/LanguageContext"
 
 const Skills = () => {
+    const { t } = useLanguage()
     const categories = ["Languages", "Frontend", "Backend", "Databases", "Tools", "Other"] as const
 
     return (
         <div className="container px-4 py-16 md:px-6 md:py-24">
             <div className="space-y-4 text-center mb-12">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Skills</h2>
-                <p className="text-muted-foreground">Technologies I work with</p>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{t.skills.title}</h2>
+                <p className="text-muted-foreground">{t.skills.subtitle}</p>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
