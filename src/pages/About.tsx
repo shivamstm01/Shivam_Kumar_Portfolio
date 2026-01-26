@@ -1,57 +1,94 @@
 import { motion } from "framer-motion"
+import { useLanguage } from "@/context/LanguageContext"
 
 const About = () => {
+    const { t } = useLanguage()
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.15 }
+        }
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5 }
+        }
+    }
+
     return (
-        <div className="container px-4 py-16 md:px-6 md:py-24">
+        <div className="container px-4 py-16 md:px-6 md:py-24 overflow-hidden">
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 className="max-w-3xl mx-auto space-y-8"
             >
-                <div className="space-y-2 text-center">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">About Me</h2>
-                    <p className="text-muted-foreground">Software Engineer based in Bihar, India</p>
-                </div>
+                <motion.div variants={itemVariants} className="space-y-2 text-center">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl relative inline-block">
+                        {t.about.title}
+                        <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary/50 rounded-full" />
+                    </h2>
+                    <p className="text-muted-foreground">{t.about.subtitle}</p>
+                </motion.div>
 
                 <div className="prose prose-gray dark:prose-invert mx-auto">
-                    <p className="text-lg leading-relaxed text-muted-foreground">
-                        Software Engineer with strong foundations in computer science, data structures, algorithms, and system design, and hands-on experience building scalable, reliable, production-grade systems. Experienced in React, Angular, Node.js, Express, Java, and Spring Boot, with a focus on end-to-end ownership, code quality, performance, and maintainability. Adept at collaborating in cross-functional teams, reviewing code, and operating systems in real-world production environments. Passionate about building reliable infrastructure and learning large-scale distributed systems.
-                    </p>
+                    <motion.p variants={itemVariants} className="text-lg leading-relaxed text-muted-foreground">
+                        {t.about.description}
+                    </motion.p>
 
-                    <div className="mt-8">
-                        <h3 className="text-xl font-bold mb-4">Education</h3>
+                    <motion.div variants={itemVariants} className="mt-8">
+                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                            {t.about.education}
+                        </h3>
                         <div className="space-y-6">
-                            <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
-                                <div className="flex justify-between items-start flex-col sm:flex-row gap-2">
-                                    <div>
-                                        <h4 className="font-semibold text-lg">Master of Science in Artificial Intelligence And Cyber Security</h4>
-                                        <p className="text-muted-foreground">Indian Institute of Technology, Patna, Bihar</p>
+                            {[
+                                { title: "Master of Science in Artificial Intelligence And Cyber Security", school: "Indian Institute of Technology, Patna, Bihar", date: "Dec 2025 – Dec 2027" },
+                                { title: "Bachelor of Technology in Computer Science & Engineering", school: "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal, MP", date: "Aug 2018 – Jul 2022" }
+                            ].map((edu, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    whileHover={{ scale: 1.02 }}
+                                    className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 hover:shadow-md transition-all"
+                                >
+                                    <div className="flex justify-between items-start flex-col sm:flex-row gap-2">
+                                        <div>
+                                            <h4 className="font-semibold text-lg">{edu.title}</h4>
+                                            <p className="text-muted-foreground">{edu.school}</p>
+                                        </div>
+                                        <span className="text-sm font-medium bg-secondary px-2 py-1 rounded">{edu.date}</span>
                                     </div>
-                                    <span className="text-sm font-medium bg-secondary px-2 py-1 rounded">Dec 2025 – Dec 2027</span>
-                                </div>
-                            </div>
-                            <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
-                                <div className="flex justify-between items-start flex-col sm:flex-row gap-2">
-                                    <div>
-                                        <h4 className="font-semibold text-lg">Bachelor of Technology in Computer Science & Engineering</h4>
-                                        <p className="text-muted-foreground">Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal, MP</p>
-                                    </div>
-                                    <span className="text-sm font-medium bg-secondary px-2 py-1 rounded">Aug 2018 – Jul 2022</span>
-                                </div>
-                            </div>
+                                </motion.div>
+                            ))}
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="mt-8">
-                        <h3 className="text-xl font-bold mb-4">Key Achievements</h3>
-                        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                            <li>Increased user engagement by 30% by implementing advanced React/Angular features, optimizing UI/UX, and improving performance.</li>
-                            <li>Authored comprehensive documentation for large-scale React/Angular and full-stack projects, reducing onboarding time by 40%.</li>
-                            <li>Optimized backend APIs and database queries, resulting in up to 25% faster response times for high-traffic systems.</li>
-                            <li>Successfully delivered multiple enterprise-grade projects within deadlines, ensuring 100% client satisfaction and zero post-deployment critical bugs.</li>
+                    <motion.div variants={itemVariants} className="mt-8">
+                        <h3 className="text-xl font-bold mb-4">{t.about.achievements}</h3>
+                        <ul className="grid gap-3">
+                            {[
+                                "Increased user engagement by 30% by implementing advanced React/Angular features, optimizing UI/UX, and improving performance.",
+                                "Authored comprehensive documentation for large-scale React/Angular and full-stack projects, reducing onboarding time by 40%.",
+                                "Optimized backend APIs and database queries, resulting in up to 25% faster response times for high-traffic systems.",
+                                "Successfully delivered multiple enterprise-grade projects within deadlines, ensuring 100% client satisfaction and zero post-deployment critical bugs."
+                            ].map((ach, idx) => (
+                                <motion.li
+                                    key={idx}
+                                    variants={itemVariants}
+                                    className="flex items-start gap-2 text-muted-foreground p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                                >
+                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                                    <span>{ach}</span>
+                                </motion.li>
+                            ))}
                         </ul>
-                    </div>
+                    </motion.div>
                 </div>
             </motion.div>
         </div>

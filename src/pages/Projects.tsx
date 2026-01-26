@@ -1,14 +1,16 @@
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { projectsData } from "@/data/projects"
 import { ExternalLink, Github } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
 
 const Projects = () => {
-    const { t } = useLanguage()
+    const { t, language } = useLanguage()
     const [filter, setFilter] = useState<"All" | "Full Stack" | "Frontend" | "Backend">("All")
 
-    const filteredProjects = projectsData.filter(
+    const projects = projectsData[language]
+
+    const filteredProjects = projects.filter(
         (project) => filter === "All" || project.category === filter
     )
 
@@ -36,62 +38,67 @@ const Projects = () => {
                 ))}
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-                {filteredProjects.map((project) => (
-                    <motion.div
-                        key={project.id}
-                        layout
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.3 }}
-                        className="rounded-xl border bg-card text-card-foreground shadow overflow-hidden flex flex-col"
-                    >
-                        <div className="relative aspect-video overflow-hidden">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-                            />
-                        </div>
-                        <div className="p-6 flex-1 flex flex-col">
-                            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                            <p className="text-muted-foreground text-sm mb-4 flex-1">{project.description}</p>
-
-                            <div className="flex flex-wrap gap-2 mb-6">
-                                {project.tags.map((tag) => (
-                                    <span key={tag} className="text-xs font-medium px-2 py-1 bg-secondary rounded-md">
-                                        {tag}
-                                    </span>
-                                ))}
+            <motion.div
+                className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
+                layout
+            >
+                <AnimatePresence>
+                    {filteredProjects.map((project) => (
+                        <motion.div
+                            key={project.id}
+                            layout
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.3 }}
+                            className="rounded-xl border bg-card text-card-foreground shadow overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300"
+                        >
+                            <div className="relative aspect-video overflow-hidden">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                                />
                             </div>
+                            <div className="p-6 flex-1 flex flex-col">
+                                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                                <p className="text-muted-foreground text-sm mb-4 flex-1">{project.description}</p>
 
-                            <div className="flex gap-4 mt-auto">
-                                {project.demoUrl && (
-                                    <a
-                                        href={project.demoUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center text-sm font-medium text-primary hover:underline"
-                                    >
-                                        <ExternalLink className="mr-2 h-4 w-4" /> {t.projects.demo}
-                                    </a>
-                                )}
-                                {project.repoUrl && (
-                                    <a
-                                        href={project.repoUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        <Github className="mr-2 h-4 w-4" /> {t.projects.code}
-                                    </a>
-                                )}
+                                <div className="flex flex-wrap gap-2 mb-6">
+                                    {project.tags.map((tag) => (
+                                        <span key={tag} className="text-xs font-medium px-2 py-1 bg-secondary rounded-md">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="flex gap-4 mt-auto">
+                                    {project.demoUrl && (
+                                        <a
+                                            href={project.demoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center text-sm font-medium text-primary hover:underline group"
+                                        >
+                                            <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" /> {t.projects.demo}
+                                        </a>
+                                    )}
+                                    {project.repoUrl && (
+                                        <a
+                                            href={project.repoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+                                        >
+                                            <Github className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" /> {t.projects.code}
+                                        </a>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+            </motion.div>
         </div>
     )
 }
