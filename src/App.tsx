@@ -6,6 +6,7 @@ import Skills from "@/pages/Skills"
 import Experience from "@/pages/Experience"
 import Projects from "@/pages/Projects"
 import ProjectDetails from "@/pages/ProjectDetails"
+import TopicDetails from "@/pages/TopicDetails"
 import Contact from "@/pages/Contact"
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="about/topic/:id" element={<TopicDetails />} />
           <Route path="skills" element={<Skills />} />
           <Route path="experience" element={<Experience />} />
           <Route path="projects" element={<Projects />} />

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion"
 import { useLanguage } from "@/context/LanguageContext"
+import { Link } from "react-router-dom"
+import { topicsData } from "@/data/topics"
 
 const About = () => {
     const { t } = useLanguage()
@@ -88,6 +90,46 @@ const About = () => {
                                 </motion.li>
                             ))}
                         </ul>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants} className="mt-12">
+                        <h3 className="text-xl font-bold mb-6">Research & Insights</h3>
+                        <div className="grid gap-6 md:grid-cols-2">
+                            {topicsData.map((topic) => (
+                                <Link to={`/about/topic/${topic.id}`} key={topic.id} className="group cursor-pointer">
+                                    <motion.div
+                                        whileHover={{ scale: 1.02 }}
+                                        className="h-full rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden hover:shadow-lg transition-all"
+                                    >
+                                        <div className="aspect-video relative overflow-hidden">
+                                            {topic.image ? (
+                                                <img
+                                                    src={topic.image}
+                                                    alt={topic.title}
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                />
+                                            ) : (
+                                                <div className="w-full h-full bg-secondary flex items-center justify-center text-muted-foreground">
+                                                    No Image
+                                                </div>
+                                            )}
+                                            <div className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium">
+                                                {topic.category}
+                                            </div>
+                                        </div>
+                                        <div className="p-5 space-y-2">
+                                            <div className="text-sm text-muted-foreground">{topic.date}</div>
+                                            <h4 className="font-semibold text-lg leading-tight group-hover:text-primary transition-colors">
+                                                {topic.title}
+                                            </h4>
+                                            <p className="text-sm text-muted-foreground line-clamp-2">
+                                                {topic.description}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                </Link>
+                            ))}
+                        </div>
                     </motion.div>
                 </div>
             </motion.div>
