@@ -7,14 +7,32 @@ const Contact = () => {
     const { t } = useLanguage()
     const [isSubmitted, setIsSubmitted] = useState(false)
 
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+    })
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        // Simulate form submission
+
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=shivamstm01@gmail.com&su=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+            `${formData.message}\n\nRegards,\n${formData.name}\n${formData.email}`
+        )}`
+
+        window.open(gmailLink, '_blank')
+
+        // Simulate form submission visually
         setTimeout(() => {
             setIsSubmitted(true)
-            // Reset form after showing success message logic if needed, 
-            // but for now keeping the success state visible
+            setFormData({ name: "", email: "", subject: "", message: "" })
         }, 500)
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { id, value } = e.target
+        setFormData(prev => ({ ...prev, [id]: value }))
     }
 
     return (
@@ -142,6 +160,8 @@ const Contact = () => {
                                         </label>
                                         <input
                                             id="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
                                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all focus:border-primary"
                                             placeholder={t.contact.form.placeholderName}
                                             required
@@ -154,6 +174,8 @@ const Contact = () => {
                                         <input
                                             id="email"
                                             type="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
                                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all focus:border-primary"
                                             placeholder={t.contact.form.placeholderEmail}
                                             required
@@ -167,6 +189,8 @@ const Contact = () => {
                                     </label>
                                     <input
                                         id="subject"
+                                        value={formData.subject}
+                                        onChange={handleChange}
                                         className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all focus:border-primary"
                                         placeholder={t.contact.form.placeholderSubject}
                                         required
@@ -179,6 +203,8 @@ const Contact = () => {
                                     </label>
                                     <textarea
                                         id="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
                                         className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all focus:border-primary"
                                         placeholder={t.contact.form.placeholderMessage}
                                         required
