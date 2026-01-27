@@ -48,59 +48,76 @@ const TopicDetails = () => {
                     )}
                 </div>
 
-                <div className="prose prose-lg dark:prose-invert max-w-none space-y-6">
-                    {topic.sections?.map((section, idx) => {
-                        switch (section.type) {
-                            case "heading":
-                                return (
-                                    <h2 key={idx} className="text-2xl font-bold mt-8 mb-4">
-                                        {section.content as string}
-                                    </h2>
-                                )
-                            case "paragraph":
-                                return (
-                                    <p key={idx} className="leading-relaxed text-muted-foreground">
-                                        {section.content as string}
-                                    </p>
-                                )
-                            case "list":
-                                return (
-                                    <ul key={idx} className="list-disc pl-6 space-y-2 text-muted-foreground">
-                                        {(section.content as string[]).map((item, i) => (
-                                            <li key={i}>{item}</li>
-                                        ))}
-                                    </ul>
-                                )
-                            case "image":
-                                return (
-                                    <figure key={idx} className="my-6">
-                                        <img
-                                            src={section.content as string}
-                                            alt={section.alt}
-                                            className="rounded-lg shadow-md w-full"
-                                        />
-                                        {section.alt && (
-                                            <figcaption className="text-sm text-center text-muted-foreground mt-2">
-                                                {section.alt}
-                                            </figcaption>
-                                        )}
-                                    </figure>
-                                )
-                            case "code":
-                                return (
-                                    <div key={idx} className="relative rounded-lg overflow-hidden bg-secondary/50 p-4 font-mono text-sm my-4">
-                                        <div className="absolute top-2 right-3 text-xs text-muted-foreground select-none">
-                                            {section.language}
+                <div className="space-y-4">
+                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                        <span className="flex items-center gap-1 bg-secondary/50 px-3 py-1 rounded-full">
+                            <Tag size={14} />
+                            {topic.category}
+                        </span>
+                        <span className="flex items-center gap-1">
+                            <Calendar size={14} />
+                            {topic.date}
+                        </span>
+                    </div>
+
+                    <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+                        {topic.title}
+                    </h1>
+
+                    <div className="prose prose-lg dark:prose-invert max-w-none space-y-6">
+                        {topic.sections?.map((section, idx) => {
+                            switch (section.type) {
+                                case "heading":
+                                    return (
+                                        <h2 key={idx} className="text-2xl font-bold mt-8 mb-4">
+                                            {section.content as string}
+                                        </h2>
+                                    )
+                                case "paragraph":
+                                    return (
+                                        <p key={idx} className="leading-relaxed text-muted-foreground">
+                                            {section.content as string}
+                                        </p>
+                                    )
+                                case "list":
+                                    return (
+                                        <ul key={idx} className="list-disc pl-6 space-y-2 text-muted-foreground">
+                                            {(section.content as string[]).map((item, i) => (
+                                                <li key={i}>{item}</li>
+                                            ))}
+                                        </ul>
+                                    )
+                                case "image":
+                                    return (
+                                        <figure key={idx} className="my-6">
+                                            <img
+                                                src={section.content as string}
+                                                alt={section.alt}
+                                                className="rounded-lg shadow-md w-full"
+                                            />
+                                            {section.alt && (
+                                                <figcaption className="text-sm text-center text-muted-foreground mt-2">
+                                                    {section.alt}
+                                                </figcaption>
+                                            )}
+                                        </figure>
+                                    )
+                                case "code":
+                                    return (
+                                        <div key={idx} className="relative rounded-lg overflow-hidden bg-secondary/50 p-4 font-mono text-sm my-4">
+                                            <div className="absolute top-2 right-3 text-xs text-muted-foreground select-none">
+                                                {section.language}
+                                            </div>
+                                            <pre className="overflow-x-auto">
+                                                <code>{section.content as string}</code>
+                                            </pre>
                                         </div>
-                                        <pre className="overflow-x-auto">
-                                            <code>{section.content as string}</code>
-                                        </pre>
-                                    </div>
-                                )
-                            default:
-                                return null
-                        }
-                    })}
+                                    )
+                                default:
+                                    return null
+                            }
+                        })}
+                    </div>
                 </div>
             </div>
         </motion.div>
