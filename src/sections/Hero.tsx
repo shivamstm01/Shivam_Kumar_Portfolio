@@ -116,11 +116,24 @@ const Hero = () => {
                             transition={{ staggerChildren: 0.05 }}
                             className="inline-block"
                         >
-                            {welcomeText.split("").map((char: string, index: number) => (
-                                <motion.span key={index} variants={letterVariants} className="inline-block whitespace-pre">
-                                    {char}
-                                </motion.span>
-                            ))}
+                            {(() => {
+                                // Use Intl.Segmenter if available for correct grapheme splitting
+                                if (typeof Intl !== 'undefined' && 'Segmenter' in Intl) {
+                                    const segmenter = new (Intl as any).Segmenter(undefined, { granularity: 'grapheme' });
+                                    const segments = Array.from(segmenter.segment(welcomeText));
+                                    return segments.map((s: any, index) => (
+                                        <motion.span key={index} variants={letterVariants} className="inline-block whitespace-pre">
+                                            {s.segment}
+                                        </motion.span>
+                                    ));
+                                }
+                                // Fallback
+                                return Array.from(welcomeText).map((char, index) => (
+                                    <motion.span key={index} variants={letterVariants} className="inline-block whitespace-pre">
+                                        {char}
+                                    </motion.span>
+                                ));
+                            })()}
                         </motion.span>
                     </motion.div>
 
