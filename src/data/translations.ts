@@ -13,13 +13,13 @@ export const translations = {
         },
         hero: {
             welcome: "Welcome to my portfolio",
-            role: "Software Engineer | Full Stack Developer | React, Angular, Node.js, Java Spring Boot",
+            role: "Senior Software Development Engineer",
             projectsBtn: "View Projects",
             contactBtn: "Contact Me"
         },
         about: {
             title: "About Me",
-            subtitle: "Software Engineer based in Bihar, India",
+            subtitle: "Software Development Engineer",
             description: "Software Engineer with strong foundations in computer science, data structures, algorithms, and system design, and hands-on experience building scalable, reliable, production-grade systems. Experienced in React, Angular, Node.js, Express, Java, and Spring Boot, with a focus on end-to-end ownership, code quality, performance, and maintainability. Adept at collaborating in cross-functional teams, reviewing code, and operating systems in real-world production environments. Passionate about building reliable infrastructure and learning large-scale distributed systems.",
             education: "Education",
             achievements: "Key Achievements",
@@ -77,13 +77,13 @@ export const translations = {
         },
         hero: {
             welcome: "मेरे पोर्टफोलियो में आपका स्वागत है",
-            role: "सॉफ्टवेयर इंजीनियर | फुल स्टैक डेवलपर | React, Angular, Node.js, Java Spring Boot",
+            role: "सीनियर सॉफ्टवेयर डेवलपमेंट इंजीनियर",
             projectsBtn: "प्रोजेक्ट्स देखें",
             contactBtn: "मुझसे संपर्क करें"
         },
         about: {
             title: "मेरे बारे में",
-            subtitle: "बिहार, भारत में स्थित सॉफ्टवेयर इंजीनियर",
+            subtitle: "सॉफ्टवेयर इंजीनियर",
             description: "सॉफ्टवेयर इंजीनियर जिसकी कंप्यूटर विज्ञान, डेटा संरचनाओं, एल्गोरिदम और सिस्टम डिज़ाइन में मजबूत नींव है। React, Angular, Node.js, Express, Java और Spring Boot में अनुभवी। कोड गुणवत्ता, प्रदर्शन और रखरखाव पर ध्यान केंद्रित। विश्वसनीय अवसंरचना बनाने और बड़े पैमाने पर वितरित सिस्टम सीखने के बारे में भावुक।",
             education: "शिक्षा",
             achievements: "मुख्य उपलब्धियां",
@@ -141,13 +141,13 @@ export const translations = {
         },
         hero: {
             welcome: "माझ्या पोर्टफोलिओमध्ये आपले स्वागत आहे",
-            role: "सॉफ्टवेअर इंजिनिअर | फुल स्टॅक डेव्हलपर | React, Angular, Node.js, Java Spring Boot",
+            role: "सिनियर सॉफ्टवेअर डेव्हलपमेंट इंजिनिअर",
             projectsBtn: "प्रकल्प पहा",
             contactBtn: "माझ्याशी संपर्क साधा"
         },
         about: {
             title: "माझ्याबद्दल",
-            subtitle: "बिहार, भारत येथील सॉफ्टवेअर इंजिनिअर",
+            subtitle: "सॉफ्टवेअर इंजिनिअर",
             description: "संगणक विज्ञान, डेटा स्ट्रक्चर्स, अल्गोरिदम आणि सिस्टम डिझाइनमध्ये मजबूत पाया असलेला सॉफ्टवेअर इंजिनिअर. React, Angular, Node.js, Express, Java आणि Spring Boot मध्ये अनुभवी. स्केल करण्यायोग्य आणि विश्वसनीय सिस्टम तयार करण्याचा अनुभव. कोड गुणवत्ता आणि कार्यक्षमतेवर लक्ष केंद्रित करतो.",
             education: "शिक्षण",
             achievements: "महत्त्वाच्या कामगिरी",
@@ -205,13 +205,13 @@ export const translations = {
         },
         hero: {
             welcome: "हमरा पोर्टफोलियो में राउर स्वागत बा",
-            role: "सॉफ्टवेअर इंजीनियर | फुल स्टॅक डेवलपर | React, Angular, Node.js, Java Spring Boot",
+            role: "सीनियर सॉफ्टवेयर डेवलपमेंट इंजीनियर",
             projectsBtn: "प्रोजेक्ट्स देखीं",
             contactBtn: "हमसे संपर्क करीं"
         },
         about: {
             title: "हमरा बारे में",
-            subtitle: "बिहार, भारत के एगो सॉफ्टवेयर इंजीनियर",
+            subtitle: "सॉफ्टवेयर इंजीनियर",
             description: "सॉफ्टवेयर इंजीनियर जेकर कंप्यूटर साइंस, डेटा स्ट्रक्चर, एल्गोरिदम अउर सिस्टम डिजाइन में मजबूत पकड़ बा. React, Angular, Node.js, Express, Java अउर Spring Boot में अनुभवी. हम स्केलेबल अउर भरोसेमंद सिस्टम बनावे में विश्वास राखीला.",
             education: "शिक्षा",
             achievements: "खास उपलब्धि",
