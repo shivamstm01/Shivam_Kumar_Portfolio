@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { projectsData } from "@/data/projects"
 import { ExternalLink, Github } from "lucide-react"
@@ -51,17 +52,24 @@ const Projects = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.3 }}
-                            className="rounded-xl border bg-card text-card-foreground shadow overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300"
+                            className="rounded-xl border bg-card text-card-foreground shadow overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300 group"
                         >
-                            <div className="relative aspect-video overflow-hidden">
+                            <Link to={`/projects/${project.id}`} className="block relative aspect-video overflow-hidden cursor-pointer">
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                                 />
-                            </div>
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span className="text-white font-medium px-4 py-2 border border-white/30 rounded-full backdrop-blur-sm">
+                                        View Details
+                                    </span>
+                                </div>
+                            </Link>
                             <div className="p-6 flex-1 flex flex-col">
-                                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                                <Link to={`/projects/${project.id}`} className="hover:underline">
+                                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                                </Link>
                                 <p className="text-muted-foreground text-sm mb-4 flex-1">{project.description}</p>
 
                                 <div className="flex flex-wrap gap-2 mb-6">
@@ -78,9 +86,9 @@ const Projects = () => {
                                             href={project.demoUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center text-sm font-medium text-primary hover:underline group"
+                                            className="flex items-center text-sm font-medium text-primary hover:underline"
                                         >
-                                            <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" /> {t.projects.demo}
+                                            <ExternalLink className="mr-2 h-4 w-4" /> {t.projects.demo}
                                         </a>
                                     )}
                                     {project.repoUrl && (
@@ -88,9 +96,9 @@ const Projects = () => {
                                             href={project.repoUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+                                            className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                                         >
-                                            <Github className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" /> {t.projects.code}
+                                            <Github className="mr-2 h-4 w-4" /> {t.projects.code}
                                         </a>
                                     )}
                                 </div>

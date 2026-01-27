@@ -124,21 +124,12 @@ const Hero = () => {
                         </motion.span>
                     </motion.div>
 
-                    <div className="relative">
-                        <motion.div
-                            className="absolute -inset-1 rounded-lg bg-gradient-to-r from-primary via-purple-500 to-primary opacity-30 blur-xl"
-                            animate={{
-                                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                            }}
-                            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                        />
-                        <motion.h1
-                            variants={itemVariants}
-                            className="relative text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl/none bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70"
-                        >
-                            Hi, I'm <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">Shivam Kumar</span>
-                        </motion.h1>
-                    </div>
+                    <motion.h1
+                        variants={itemVariants}
+                        className="relative text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl/none bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70"
+                    >
+                        Hi, I'm <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">Shivam Kumar</span>
+                    </motion.h1>
 
                     <motion.p
                         variants={itemVariants}
