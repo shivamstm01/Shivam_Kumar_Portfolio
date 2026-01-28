@@ -24,6 +24,7 @@ const Experience = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
+
                     className="text-3xl font-bold tracking-normal sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400 pb-2 leading-normal"
                 >
                     {t.experience.title}
