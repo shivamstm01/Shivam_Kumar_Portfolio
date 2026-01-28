@@ -37,7 +37,7 @@ const Skills = () => {
                 transition={{ duration: 0.5 }}
                 className="space-y-4 text-center mb-12"
             >
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl relative inline-block">
+                <h2 className="text-3xl font-bold tracking-normal sm:text-4xl relative inline-block pb-2 leading-normal">
                     {t.skills.title}
                     <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary/50 rounded-full" />
                 </h2>

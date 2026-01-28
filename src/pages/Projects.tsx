@@ -26,7 +26,7 @@ const Projects = () => {
                 url="/projects"
             />
             <div className="space-y-4 text-center mb-12">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Projects</h2>
+                <h2 className="text-3xl font-bold tracking-normal sm:text-4xl pb-2 leading-normal">Projects</h2>
                 <p className="text-muted-foreground">Some of my recent work</p>
             </div>
 

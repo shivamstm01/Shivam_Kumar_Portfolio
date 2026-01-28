@@ -24,7 +24,7 @@ const Experience = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400"
+                    className="text-3xl font-bold tracking-normal sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400 pb-2 leading-normal"
                 >
                     {t.experience.title}
                 </motion.h2>
@@ -55,7 +55,7 @@ const Experience = () => {
                             className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
                         >
                             {/* Timeline Dot */}
-                            <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 mt-6 z-20 shadow-[0_0_10px_2px_rgba(var(--primary),0.5)] border-4 border-background" />
+                            <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 mt-6 z-20 shadow-[0_0_10px_2px_rgba(var(--primary),0.5)] border-4 border-background overflow-visible" />
 
                             {/* Content Card */}
                             <div className="ml-16 md:ml-0 md:w-1/2 relative group">

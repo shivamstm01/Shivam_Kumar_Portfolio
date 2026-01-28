@@ -49,7 +49,7 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{t.contact.title}</h2>
+                    <h2 className="text-3xl font-bold tracking-normal sm:text-4xl pb-2 leading-normal">{t.contact.title}</h2>
                     <p className="text-muted-foreground">{t.contact.subtitle}</p>
                 </motion.div>
             </div>

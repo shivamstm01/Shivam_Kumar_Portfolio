@@ -13,17 +13,17 @@ const Navbar = () => {
         <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
                 <Link to="/" className="text-xl font-bold">
-                    Portfolio
+                    Shivam
                 </Link>
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex gap-6">
-                    <Link to="/" className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.home}</Link>
-                    <Link to="/about" className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/about' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.about}</Link>
-                    <Link to="/skills" className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/skills' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.skills}</Link>
-                    <Link to="/experience" className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/experience' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.experience}</Link>
-                    <Link to="/projects" className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/projects' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.projects}</Link>
-                    <Link to="/contact" className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.contact}</Link>
+                    <Link to="/" className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.home}</Link>
+                    <Link to="/about" className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/about' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.about}</Link>
+                    <Link to="/skills" className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/skills' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.skills}</Link>
+                    <Link to="/experience" className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/experience' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.experience}</Link>
+                    <Link to="/projects" className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/projects' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.projects}</Link>
+                    <Link to="/contact" className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.contact}</Link>
                 </div>
 
                 <div className="flex items-center gap-4">
@@ -61,12 +61,12 @@ const Navbar = () => {
             {isOpen && (
                 <div className="md:hidden border-b bg-background">
                     <div className="flex flex-col space-y-4 p-4">
-                        <Link to="/" onClick={() => setIsOpen(false)} className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.home}</Link>
-                        <Link to="/about" onClick={() => setIsOpen(false)} className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/about' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.about}</Link>
-                        <Link to="/skills" onClick={() => setIsOpen(false)} className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/skills' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.skills}</Link>
-                        <Link to="/experience" onClick={() => setIsOpen(false)} className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/experience' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.experience}</Link>
-                        <Link to="/projects" onClick={() => setIsOpen(false)} className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/projects' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.projects}</Link>
-                        <Link to="/contact" onClick={() => setIsOpen(false)} className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.contact}</Link>
+                        <Link to="/" onClick={() => setIsOpen(false)} className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.home}</Link>
+                        <Link to="/about" onClick={() => setIsOpen(false)} className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/about' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.about}</Link>
+                        <Link to="/skills" onClick={() => setIsOpen(false)} className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/skills' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.skills}</Link>
+                        <Link to="/experience" onClick={() => setIsOpen(false)} className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/experience' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.experience}</Link>
+                        <Link to="/projects" onClick={() => setIsOpen(false)} className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/projects' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.projects}</Link>
+                        <Link to="/contact" onClick={() => setIsOpen(false)} className={`text-sm font-medium leading-normal py-1 transition-colors hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : 'text-muted-foreground'}`}>{t.nav.contact}</Link>
 
                         <div className="pt-4 flex justify-between items-center border-t">
                             <span className="text-sm font-medium">{t.nav.switchTheme}</span>

@@ -39,7 +39,7 @@ const About = () => {
                 className="max-w-3xl mx-auto space-y-8"
             >
                 <motion.div variants={itemVariants} className="space-y-2 text-center">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl relative inline-block">
+                    <h2 className="text-3xl font-bold tracking-normal sm:text-4xl relative inline-block pb-2 leading-normal">
                         {t.about.title}
                         <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary/50 rounded-full" />
                     </h2>
