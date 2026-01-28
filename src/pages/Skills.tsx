@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { skillsData } from "@/data/skills"
 import { useLanguage } from "@/context/LanguageContext"
+import SEO from "@/components/SEO"
 
 const Skills = () => {
     const { t } = useLanguage()
@@ -25,6 +26,11 @@ const Skills = () => {
 
     return (
         <div className="container px-4 py-16 md:px-6 md:py-24">
+            <SEO
+                title="Skills"
+                description="My technical skills in React, Angular, Node.js, Java Spring Boot, and AI technologies."
+                url="/skills"
+            />
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}

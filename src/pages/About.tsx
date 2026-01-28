@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { useLanguage } from "@/context/LanguageContext"
 import { Link } from "react-router-dom"
 import { topicsData } from "@/data/topics"
+import SEO from "@/components/SEO"
 
 const About = () => {
     const { t } = useLanguage()
@@ -25,6 +26,11 @@ const About = () => {
 
     return (
         <div className="container px-4 py-16 md:px-6 md:py-24 overflow-hidden">
+            <SEO
+                title="About Me"
+                description="Learn more about Shivam Kumar, a Senior Software Development Engineer with a Master's in AI & Cyber Security."
+                url="/about"
+            />
             <motion.div
                 variants={containerVariants}
                 initial="hidden"

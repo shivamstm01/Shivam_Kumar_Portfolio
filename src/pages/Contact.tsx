@@ -2,6 +2,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
+import SEO from "@/components/SEO"
 
 const Contact = () => {
     const { t } = useLanguage()
@@ -37,6 +38,11 @@ const Contact = () => {
 
     return (
         <div className="container px-4 py-16 md:px-6 md:py-24">
+            <SEO
+                title="Contact Me"
+                description="Get in touch with Shivam Kumar for collaboration, job opportunities, or just to say hi."
+                url="/contact"
+            />
             <div className="space-y-4 text-center mb-12">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}

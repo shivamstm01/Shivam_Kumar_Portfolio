@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { experienceData } from "@/data/experience"
 import { Briefcase, Calendar, MapPin } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
+import SEO from "@/components/SEO"
 
 const Experience = () => {
     const { t, language } = useLanguage()
@@ -9,6 +10,11 @@ const Experience = () => {
 
     return (
         <div className="container px-4 py-16 md:px-6 md:py-24 relative overflow-hidden">
+            <SEO
+                title="Experience"
+                description="My professional experience as a Software Engineer at companies like Tata Consultancy Services."
+                url="/experience"
+            />
             {/* Background Elements */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl -z-10 opacity-30 animate-pulse" />
 

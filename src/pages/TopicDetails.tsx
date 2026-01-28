@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { useParams, Link } from "react-router-dom"
 import { topicsData } from "@/data/topics"
 import { ArrowLeft, Calendar, Tag } from "lucide-react"
+import SEO from "@/components/SEO"
 
 const TopicDetails = () => {
     const { id } = useParams()
@@ -10,6 +11,7 @@ const TopicDetails = () => {
     if (!topic) {
         return (
             <div className="container min-h-screen flex flex-col items-center justify-center text-center space-y-4">
+                <SEO title="Topic Not Found" description="The requested topic could not be found." />
                 <h2 className="text-2xl font-bold">Topic not found</h2>
                 <Link to="/about" className="text-primary hover:underline flex items-center gap-2">
                     <ArrowLeft size={16} /> Back to About
@@ -25,6 +27,13 @@ const TopicDetails = () => {
             exit={{ opacity: 0, y: 20 }}
             className="container px-4 py-8 md:px-6 md:py-12 max-w-4xl mx-auto"
         >
+            <SEO
+                title={topic.title}
+                description={topic.description}
+                image={topic.image}
+                url={`/about/topic/${topic.id}`}
+                keywords={topic.title + ", " + topic.category}
+            />
             <Link
                 to="/about"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"

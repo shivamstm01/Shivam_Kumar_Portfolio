@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { projectsData } from "@/data/projects"
 import { ExternalLink, Github } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
+import SEO from "@/components/SEO"
 
 const Projects = () => {
     const { t, language } = useLanguage()
@@ -19,6 +20,11 @@ const Projects = () => {
 
     return (
         <div className="container px-4 py-16 md:px-6 md:py-24">
+            <SEO
+                title="Projects"
+                description="Explore my portfolio of projects featuring Full Stack applications, AI integrations, and more."
+                url="/projects"
+            />
             <div className="space-y-4 text-center mb-12">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Projects</h2>
                 <p className="text-muted-foreground">Some of my recent work</p>

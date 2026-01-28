@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom"
 import { projectsData } from "@/data/projects"
 import { useLanguage } from "@/context/LanguageContext"
 import { ArrowLeft, ExternalLink, Github } from "lucide-react"
+import SEO from "@/components/SEO"
 
 const ProjectDetails = () => {
     const { id } = useParams()
@@ -13,6 +14,7 @@ const ProjectDetails = () => {
     if (!project) {
         return (
             <div className="container min-h-[50vh] flex flex-col items-center justify-center">
+                <SEO title="Project Not Found" description="The requested project could not be found." />
                 <h2 className="text-2xl font-bold mb-4">Project not found</h2>
                 <Link to="/projects" className="text-primary hover:underline flex items-center">
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
@@ -28,6 +30,13 @@ const ProjectDetails = () => {
             exit={{ opacity: 0 }}
             className="container px-4 py-16 md:px-6 md:py-24 max-w-4xl mx-auto"
         >
+            <SEO
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                url={`/projects/${project.id}`}
+                keywords={project.tags.join(", ") + ", " + project.category}
+            />
             <Link
                 to="/projects"
                 className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8 group"
